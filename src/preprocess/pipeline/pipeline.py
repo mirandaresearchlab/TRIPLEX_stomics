@@ -125,7 +125,7 @@ class TriplexPipeline:
         print("Preparing gene sets...")
         cmd = [
             "python", "src/preprocess/get_geneset.py",
-            "--st_dir", f"{self.output_dir}/adata",
+            "--st_dir", f"{self.input_dir}/st",
             "--output_dir", self.output_dir,
             "--n_top_hvg", str(self.config['n_top_hvg']),
             "--n_top_heg", str(self.config['n_top_heg']),
@@ -138,7 +138,7 @@ class TriplexPipeline:
         print("Splitting data for cross-validation...")
         cmd = [
             "python", "src/preprocess/split_data.py",
-            "--input_dir", self.output_dir,
+            "--input_dir", self.input_dir,
             "--n_splits", str(self.config['n_splits'])
         ]
         subprocess.run(cmd)
