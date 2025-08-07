@@ -29,7 +29,6 @@ def find_geneset(data_list, n_top_hvg=50, n_top_heg=1000, n_top_hmhvg=200, min_s
     dict: Dictionary containing selected genes. Keys are 'var' for highly variable genes and 'mean' for highly expressed genes.
     """
     """Get genes based on variability or total counts"""
-    
     common_genes = list(set.intersection(*[set(adata.var_names) for adata in data_list]))
     total_spot_number = sum(adata.shape[0] for adata in data_list)
     
@@ -72,7 +71,7 @@ def find_geneset(data_list, n_top_hvg=50, n_top_heg=1000, n_top_hmhvg=200, min_s
             sc.pp.log1p(adata)
             sc.pp.highly_variable_genes(adata, n_top_genes=2000)
 
-            union_hvg = union_hvg.union(set(adata.var_names[adata.var["highly_variable"]])
+            union_hvg = union_hvg.union(set(adata.var_names[adata.var["highly_variable"]]))
 
         union_hvg = sorted([gene for gene in union_hvg if not gene.startswith(("MT", "mt", "RPS", "RPL"))]) # [optional] remove mitochondrial genes and ribosomal genes
 
