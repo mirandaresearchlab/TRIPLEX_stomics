@@ -1,0 +1,18 @@
+[project]
+name = "triplex-stomics"
+version = "0.1.0"
+description = "Modified TRIPLEX for stomics project investigations."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "torch==2.4.1",
+    "torchvision==0.19.1",
+    "HEST",
+    "addict>=2.4.0",
+    "openslide-bin>=4.0.0.8",
+    "wget>=3.2",
+    "wandb>=0.21.0",
+]
+
+[tool.uv.sources]
+uni = { path = "/workspaces/docker_workspace/HEST", editable = true }
