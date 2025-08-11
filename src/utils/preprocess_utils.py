@@ -85,7 +85,6 @@ def pxl_to_array(pixel_crds, step_size):
     dst = np.stack((x_crds, y_crds), axis=1)
     return dst
 
-
 def save_hdf5(output_fpath, 
                       asset_dict, 
                       attr_dict= None, 
@@ -99,8 +98,9 @@ def save_hdf5(output_fpath,
                 val = np.expand_dims(val, axis=1)
                 data_shape = val.shape
 
-            # Determine if the data is of string type
-            if np.issubdtype(val.dtype, np.string_) or np.issubdtype(val.dtype, np.unicode_):
+            # Determine if the data is of string type <-- `np.string_` was removed in the NumPy 2.0 release. Use `np.bytes_` instead.
+            # if np.issubdtype(val.dtype, np.string_) or np.issubdtype(val.dtype, np.unicode_):
+            if np.issubdtype(val.dtype, np.bytes_) or np.issubdtype(val.dtype, np.str_):
                 data_type = h5py.string_dtype(encoding='utf-8')
             else:
                 data_type = val.dtype
