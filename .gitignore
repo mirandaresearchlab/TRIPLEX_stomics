@@ -34,3 +34,4 @@ src/DRP
 *test.R
 *test.ipynb
 pp*
+.env

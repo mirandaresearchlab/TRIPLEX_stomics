@@ -1,9 +1,14 @@
+[build-system]
+requires = ["hatchling>=1.24"]          # lightweight PEP-517 backend
+build-backend = "hatchling.build"
+
 [project]
 name = "triplex-stomics"
 version = "0.1.0"
 description = "Modified TRIPLEX for stomics project investigations."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
+
 dependencies = [
     "torch==2.4.1",
     "torchvision==0.19.1",
@@ -15,7 +20,23 @@ dependencies = [
     "matplotlib-inline>=0.1.7",
     "ipykernel>=6.30.1",
     "hest",
+    "dotenv>=0.9.9",
 ]
 
 [tool.uv.sources]
 hest = { path = "/workspaces/docker_workspace/HEST", editable = true }
+
+[project.scripts]
+triplex-preprocess  = "tutorials.preprocess_data:_cli_entrypoint"
+
+[tool.hatch.build]
+packages = ["src", "tutorials"]
+
+[tool.hatch.build.targets.wheel]
+include = [
+  "config/**",
+  "figures/**",
+  "input/**",
+  "script/**",
+]
+
