@@ -100,6 +100,13 @@ Install [FlashAttention](https://github.com/Dao-AILab/flash-attention)
 pip install flash-attn --no-build-isolation
 ```
 
+if you're using uv
+```bash
+uv pip install -U pip setuptools wheel ninja cmake packaging pybind11 && \
+  uv run pip install --no-cache-dir --no-build-isolation -v flash-attn
+```
+
+
 Install remaining dependencies:
 
 ```bash
