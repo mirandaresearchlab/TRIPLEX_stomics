@@ -18,7 +18,6 @@ results
 
 # Others
 test.ipynb
-.vscode
 __pycache__
 
 input/*

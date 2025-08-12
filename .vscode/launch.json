@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "TRIPLEX (venv)",
+      "type": "python",
+      "request": "launch",
+      "program": "/workspaces/docker_workspace/TRIPLEX_stomics/src/main.py",
+      "args": ["--config_name", "TRIPLEX", "--gpu", "1", "--mode", "cv"],
+      "cwd": "/workspaces/docker_workspace/TRIPLEX_stomics",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ]
+}
