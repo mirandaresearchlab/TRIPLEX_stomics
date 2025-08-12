@@ -132,7 +132,8 @@ class TRIPLEX(nn.Module):
                                             int(emb_dim*mlp_ratio2), 
                                             dropout2, 
                                             kernel_size,
-                                            pos_layer)
+                                            pos_layer,
+                                            flash_attn=False)
         self.fc_global = nn.Linear(emb_dim, num_genes)
         
         # Fusion Layer
